@@ -1,58 +1,89 @@
 # 御剑实验室 · Sword Flow
 
-用手势控制飞剑、旋风与巨剑合击的浏览器视觉实验。基于 Three.js 和 MediaPipe。
+**用手势驾驭飞剑。Control flying swords with your hands.**
 
-支持 2400 把飞剑旋风、60 把悬空剑、沿手指轨迹穿行，以及巨剑抵球加速自转和炸裂。
+基于 Three.js 和 MediaPipe 的浏览器视觉实验：2400 把飞剑旋风、60 把悬空剑、沿手指轨迹穿行，以及巨剑抵球自转和炸裂。
 
-## 在线与本机
+A browser-based visual experiment built with Three.js and MediaPipe: a 2,400-sword vortex, a 60-sword formation, fingertip-guided flight, and a giant sword that drills into an orb before bursting apart.
 
-在线版可运行视觉效果、手势识别和 WebM 录屏。本机版额外支持 FFmpeg 转 MP4。建议使用桌面 Chrome、摄像头和独立显卡或性能较好的集成显卡。
+[在线体验 · Live demo](https://timlearnai.github.io/sword-flow/) · [下载 · Downloads](https://github.com/timlearnai/sword-flow/releases/latest) · [反馈 · Issues](https://github.com/timlearnai/sword-flow/issues)
 
-## 启动
+## 快速体验 · Quick start
 
-需要 Python 3、支持 WebGL 的桌面浏览器；手势模式需要摄像头。
+无需安装即可打开在线体验。底部的 English / 中文 按钮可切换页面语言，并记住选择。推荐桌面 Chrome 和支持 WebGL 的电脑。预览按钮不需要摄像头；实际手势控制需要点击「开启摄像头」并允许权限。
+
+Open the live demo without installing anything. Use the English / 中文 button at the bottom to switch languages; your choice is remembered. A desktop computer with WebGL and Chrome is recommended. Preview buttons work without a camera. For hand tracking, click **开启摄像头 (Enable camera)** and grant camera access.
+
+| 页面按钮 · On-screen button | 作用 · What it does |
+|---|---|
+| 预览60把排剑 | 凝结60把悬空剑，等待2秒。 / Form 60 floating swords; allow 2 seconds. |
+| 预览递增批次穿行 | 排剑完成后，预览3、6、9……递增批次沿轨迹飞行。 / After formation, preview flight in growing batches of 3, 6, 9… swords. |
+| 预览托球巨剑合击 | 预览穿行、托球、巨剑抵球自转和炸裂。 / Preview flight, orb formation, the giant-sword drill and the burst. |
+| 预览绕行效果 | 预览绕行剑阵。 / Preview the winding sword formation. |
+| 预览炸散 | 预览炸散效果。 / Preview the burst effect. |
+| 切回手势控制 | 结束预览，返回手势控制。 / Leave preview mode and return to hand control. |
+| 用鼠标模拟 | 开启或关闭鼠标模拟，按页面提示操作。 / Toggle mouse simulation and follow the on-screen instructions. |
+| 开始录制 | 录制展示画面和已开启的摄像头小窗。 / Record the effect and the camera inset, if enabled. |
+
+## 手势说明 · Gesture guide
+
+| 手势 / 阶段 · Gesture / stage | 效果 · Result |
+|---|---|
+| 攥拳；握紧2.5秒 / Close your fist; hold tightly for 2.5 seconds | 吸引颗粒，持续握紧后全场吸引。 / Gather particles; a sustained tight fist attracts the whole field. |
+| 剑指（食指和中指伸出） / Sword fingers (index and middle fingers extended) | 凝结巨剑。 / Form a giant sword. |
+| 突然摊开手掌 / Suddenly open your palm | 炸开当前剑阵。 / Burst the current formation apart. |
+| 两次完成巨剑并释放 / Complete and release the giant sword twice | 解锁原有单食指旋风和托球流程。 / Unlock the original index-finger vortex and orb sequence. |
+| 摊掌保持2秒 / Hold an open palm for 2 seconds | 进入60把悬空剑模式。 / Enter the 60-sword formation mode. |
+| 悬空剑模式下伸出并移动食指 / Extend and move your index finger in formation mode | 飞剑按3、6、9……递增批次沿手指轨迹穿行；收拳退出。 / Release growing batches of 3, 6, 9… along your fingertip path; close your fist to exit. |
+| 穿行至少2秒，再左手托球保持1.5秒 / Fly for at least 2 seconds, then hold the left palm up for 1.5 seconds | 巨剑从球右侧抵住球面，绕自身轴加速自转，2.5秒后炸裂。 / A giant sword presses against the orb from the right, spins faster around its own axis, then bursts after 2.5 seconds. |
+
+圆形剑阵、下挥万剑、球形召剑等动作也保留。识别是实验功能，光照、遮挡和设备性能会影响效果。
+
+Circular formations, downward sword attacks and spherical gathering are also included. Gesture recognition is experimental; lighting, occlusion and hardware performance affect the experience.
+
+## 本机运行 · Run locally
+
+需要 Python 3。下载并解压发布包，在文件夹中运行：
+
+Install Python 3, download and extract a release, then run this command inside the folder:
 
 ```sh
 python3 serve.py 8770
 ```
 
-打开 http://127.0.0.1:8770/ 。macOS 也可双击 `start.command`，终端窗口需保持开启。
-首次需要联网加载固定版本的 Three.js 和 MediaPipe。点击「开启摄像头」并允许权限后，摄像头画面在浏览器处理；录屏转码请求仅发到本机服务器。在线版不上传录像。录制结果会包含已开启的右下角摄像头小窗，不含页面按钮和文字。
+打开 / Open [http://127.0.0.1:8770/](http://127.0.0.1:8770/).
 
-MP4 导出需要单独安装 FFmpeg 并放入 PATH；没有时仍可运行，导出会回退到 WebM。
+macOS 用户也可双击发布包中的 `start.command`。保持终端窗口开启。首次加载需要联网获取固定版本的 Three.js 和 MediaPipe。
 
-## 快速测试
+On macOS, you can also double-click `start.command` in the release package. Keep the terminal open. An internet connection is needed to load the pinned Three.js and MediaPipe dependencies.
 
-1. 点「预览60把排剑」，检查替代模型和排列。
-2. 待两秒凝结完成，点「预览递增批次穿行」，观察3、6、9……递增剑流。
-3. 点「预览托球巨剑合击」，检查穿行、托球、抵球自转、风效和炸裂。
-4. 点「切回手势控制」试摄像头。
+## 录屏与隐私 · Recording and privacy
 
-## 手势
+- 在线版保存 WebM。本机版安装 FFmpeg 并放入 PATH 后可转换为 MP4；转换失败时保留 WebM。
+  Online recording saves WebM. Local recording can convert to MP4 when FFmpeg is installed and available on PATH; WebM is retained if conversion fails.
+- 录像包含展示画面和已开启的右下角摄像头小窗，不含页面按钮、文字或浏览器栏。
+  Recordings include the effect and the bottom-right camera inset when enabled, excluding page controls, text and browser chrome.
+- 摄像头画面在浏览器中处理。在线版不上传录像；MP4 转换请求仅发到本机服务器。
+  Camera frames are processed in your browser. The online version does not upload recordings; MP4 conversion requests go only to the local server.
+- 无内置音效、无附赠歌曲。可自选本地背景音乐；请自行确认音乐使用授权。
+  No built-in sound effects or bundled songs. You may select local background music that you have permission to use.
 
-- 攥拳吸引，握紧2.5秒全场吸引；剑指凝巨剑，快速摊掌炸开。
-- 两次完成巨剑并释放后，解锁原来的单食指旋风及托球流程。
-- 摊掌保持2秒：进入60把悬空剑；食指引导、移动分批穿行；收拳退出。
-- 穿行先展示至少2秒，再托球持续1.5秒：巨剑在球右侧、剑柄抬高30度，剑尖抵球绕自身轴加速，2.5秒后炸裂。
-- 圆形剑阵、下挥万剑、球形召剑等保留。识别仍为实验状态，光照、遮挡会影响结果。
+## 素材与限制 · Assets and limitations
 
-## 素材与实现
+模型由 `assets/models/procedural-swords.js` 独立生成。发布包不含原模型、参考视频、参考图片、歌曲、个人录屏或手势采集记录。
 
-- 不含歌曲、参考视频、参考图片、原 Blender/GLB 模型、个人录屏、手势采集记录及历史备份。
-- 用 `assets/models/procedural-swords.js` 独立生成的简单几何剑替代原模型，外观不同。
-- 不含内置音效；可选择本地背景音乐，不附赠曲目。
-- 本机服务器只保留静态预览与MP4转码，移除了旧的手势录像上传接口。
-- 约90秒的全动作自动演示尚未实现；目前是单项预览及合击预览。
+Models are independently generated by `assets/models/procedural-swords.js`. The release excludes original model assets, reference videos and images, songs, personal recordings and captured gesture datasets.
 
-## License
+目前提供单项预览和合击预览，尚未实现约90秒的全动作自动演示。完整真实手势流程和所有浏览器组合尚未全面验证。
 
-项目自身代码和程序生成模型采用 [MIT](LICENSE) 许可证。第三方库和识别模型遵循各自许可，见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。本地自行选择的音乐不属于项目发布内容。
+Individual previews and the combined attack preview are available. A complete 90-second automatic showcase is not implemented. The full live-gesture sequence and all browser combinations have not been exhaustively tested.
 
-## English quick start
+## 许可与贡献 · License and contributions
 
-Sword Flow is an experimental browser-based, gesture-controlled sword effect playground. It includes procedural geometry, flowing sword formations and a giant-sword drill attack.
+项目自身代码和程序生成模型采用 [MIT](LICENSE) 许可证。第三方库及识别模型遵循各自许可，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
-Run `python3 serve.py 8770`, open `http://127.0.0.1:8770/`, then use the preview buttons or enable the camera. Dependencies load from public CDNs. Camera processing stays in the browser. Hosted recording saves WebM; local MP4 conversion requires FFmpeg. Gesture recognition and dense effects depend on lighting and hardware.
+Project code and procedural models are licensed under [MIT](LICENSE). Third-party libraries and hand-tracking models retain their own licenses; see [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
-Contributions and reproducible bug reports are welcome. Include browser, operating system, reproduction steps and expected behavior; avoid uploading private camera footage.
+欢迎提交问题和改进。反馈时请提供浏览器、操作系统、复现步骤和预期效果，避免上传私人摄像头录像。
 
+Issues and contributions are welcome. Include your browser, operating system, reproduction steps and expected behavior. Avoid sharing private camera footage.

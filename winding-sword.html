@@ -1422,6 +1422,7 @@ const demoButton=document.createElement('button');demoButton.textContent='预览
 const liveButton=document.createElement('button');liveButton.textContent='切回手势控制';liveButton.onclick=()=>{drill.cancel();drillDemo=false;palmFormation.reset();windingDemo=false;streamOn=false;windingOpenSince=null;indexFlowGesture.reset();lostT=-1;grabbing=false;smooth=0;pendingRel=3;gc.lost(time*1000);flash('已切回手势 · 第二次巨剑散开后可单食指召唤');};document.getElementById('bottom').append(liveButton);
 const burstButton=document.createElement('button');burstButton.textContent='预览炸散';burstButton.onclick=()=>explodeAll();document.getElementById('bottom').append(burstButton);
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>
 

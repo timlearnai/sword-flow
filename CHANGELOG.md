@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1
+
+- 新增中英文界面切换，自动记住语言。
+- Chinese / English interface switching with saved language preference.
+- 项目介绍、手势和录屏说明提供完整中英双语。
+- Complete bilingual project, gesture and recording documentation.
+
 ## 0.1.0
 
 - 首次开源版本：程序生成几何剑，无内置音效。

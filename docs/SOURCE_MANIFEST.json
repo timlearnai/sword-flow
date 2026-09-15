@@ -1,0 +1,50 @@
+{
+  "copied_source_files": [
+    "winding-sword.html",
+    "gesture-core.js",
+    "left-palm-ball.js",
+    "left-palm-calibration.js",
+    "pinch-trial-core.js",
+    "sphere-sword-effect.js",
+    "sphere-burst-gesture.js",
+    "sword-audio.js",
+    "hand-identity.js",
+    "index-flow-gesture.js",
+    "vortex-angle-gesture.js",
+    "palm-formation.js",
+    "palm-trail.js",
+    "sudden-open.js",
+    "drill-sequence.js",
+    "record-video.js",
+    "serve.py"
+  ],
+  "generated_model": "assets/models/procedural-swords.js",
+  "excluded_categories": [
+    "music",
+    "videos",
+    "reference images",
+    "original model data",
+    "recordings",
+    "backups",
+    "internal notes"
+  ],
+  "source_hashes": {
+    "winding-sword.html": "66ec4047d310c02219c608b63ca5d41cd5551145f29624e8169926f1a9e63813",
+    "gesture-core.js": "bbc4000e8734113a1ea5cb17206dbe240232131b128b5ab286f3baddd98f05e2",
+    "left-palm-ball.js": "ad9eb572e23fad8465bde66d6e49a3a69a919a16d91c4e1fc692cb59afe9ea3b",
+    "left-palm-calibration.js": "6e83dac791e3fce4351edbbd749084be305aa27ddbb2c2d339303c9b7be077ed",
+    "pinch-trial-core.js": "5601e01c47e5e02c790e83ed4119fc33226f462823900fdd193e3e47804d4558",
+    "sphere-sword-effect.js": "23df674a0efa1752f84cb8c4e6428de1817686582a5d16863e899b7d58e71630",
+    "sphere-burst-gesture.js": "4fd25bb603d6ca860d9becf3c7f048bd7e02dc5a6bad9148e947cdb5d6ce32c6",
+    "sword-audio.js": "b62e8c89fffa7b2da6c04ff243128ba2540c02c0fb51f1e3b0864a9d0f3b9c18",
+    "hand-identity.js": "e70eb30d7e7517c120f8466241110c9f31c809a4b5ec51ad976d70f940e88993",
+    "index-flow-gesture.js": "0074a5f46cc76fd2836f5d053998e3ba5dda2a26796184a3c89efef45855978d",
+    "vortex-angle-gesture.js": "88f74f7839094ece99790fe4a2eb4d4beb0680bc2e74d8d792ece1ca08d4ef5f",
+    "palm-formation.js": "e38c5c9e3767e54bcf18bd9fdd7aa5eec8850367c2c8fa66bd40b49573009048",
+    "palm-trail.js": "aa2323ff838b1e272976d859d9e4f3f2f3616858a42d7469e404a96839b94b2b",
+    "sudden-open.js": "a1855752c2e07b3e482ed6a297ad25ce4a05db9eca15d0bcc86b5d97edebb3d4",
+    "drill-sequence.js": "3f4d13ee7bab51ec4d08b628697b53aac71b8248b30dfdaf8972c1fe4bc6af5f",
+    "record-video.js": "7f2e6350f37bc2b741f6cc87e1785e8d18cec1ca2a8bd6d794bb66f5480732ab",
+    "serve.py": "4840273c824c605038831044e860a8f7190c1c57ab694013f88d1c0848f87925"
+  }
+}

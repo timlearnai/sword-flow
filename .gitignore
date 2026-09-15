@@ -1,0 +1,15 @@
+__pycache__/
+.DS_Store
+recordings/
+backups/
+reference/
+音频素材库/
+*.webm
+*.mp4
+*.mov
+*.mp3
+*.m4a
+*.wav
+*.blend
+*.blend1
+.env*

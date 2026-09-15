@@ -7,7 +7,6 @@
     "pinch-trial-core.js",
     "sphere-sword-effect.js",
     "sphere-burst-gesture.js",
-    "sword-audio.js",
     "hand-identity.js",
     "index-flow-gesture.js",
     "vortex-angle-gesture.js",
@@ -46,5 +45,8 @@
     "drill-sequence.js": "3f4d13ee7bab51ec4d08b628697b53aac71b8248b30dfdaf8972c1fe4bc6af5f",
     "record-video.js": "7f2e6350f37bc2b741f6cc87e1785e8d18cec1ca2a8bd6d794bb66f5480732ab",
     "serve.py": "4840273c824c605038831044e860a8f7190c1c57ab694013f88d1c0848f87925"
-  }
+  },
+  "release_changes": [
+    "Removed built-in synthesized sound effects at maintainer request."
+  ]
 }

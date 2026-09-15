@@ -54,7 +54,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3.1675466862/camera_utils.js"></script>
 <script src="gesture-core.js"></script>
-<script src="left-palm-ball.js"></script><script src="left-palm-calibration.js"></script><script src="pinch-trial-core.js"></script><script src="sphere-sword-effect.js?v=gather3burst"></script><script src="sphere-burst-gesture.js"></script><script src="sword-audio.js"></script><script src="hand-identity.js?v=2"></script><script src="index-flow-gesture.js?v=2"></script><script src="vortex-angle-gesture.js?v=1"></script><script src="palm-formation.js?v=1"></script><script src="palm-trail.js?v=1"></script><script src="sudden-open.js?v=1"></script><script src="drill-sequence.js?v=1"></script>
+<script src="left-palm-ball.js"></script><script src="left-palm-calibration.js"></script><script src="pinch-trial-core.js"></script><script src="sphere-sword-effect.js?v=gather3burst"></script><script src="sphere-burst-gesture.js"></script><script src="hand-identity.js?v=2"></script><script src="index-flow-gesture.js?v=2"></script><script src="vortex-angle-gesture.js?v=1"></script><script src="palm-formation.js?v=1"></script><script src="palm-trail.js?v=1"></script><script src="sudden-open.js?v=1"></script><script src="drill-sequence.js?v=1"></script>
 <script src="assets/models/procedural-swords.js"></script>
 <script>
 const errEl=document.getElementById('err');
@@ -936,7 +936,7 @@ const sstep=(a,b,x)=>{const t=Math.min(1,Math.max(0,(x-a)/(b-a)));return t*t*(3-
 let roll=0,pitch=0,rollT=0,pitchT=0,mRoll=0,mPitch=0;   // 漩涡角度（弧度）：左右倒 / 前后翻；T = 目标（手给的），m = 鼠标模拟时方向键给的
 const deg=r=>Math.round(r*180/Math.PI);
 const fill=document.getElementById('fill'),pct=document.getElementById('pct'),stateEl=document.getElementById('state'),stats=document.getElementById('stats'),cfill=document.getElementById('cfill'),tip=document.getElementById('tip');
-function flash(t){evtText=t;evtT=time;if(/炸成飞剑|万剑齐发/.test(t))SwordAudio.event('scatter');else if(/慢慢散开|巨剑散成/.test(t))SwordAudio.event('release');}
+function flash(t){evtText=t;evtT=time;}
 
 // ================= 主循环 =================
 let last=performance.now(),fr=0,fps=0,fpsT=last,time=0;
@@ -1086,7 +1086,6 @@ function tick(dt){
   if(drill.active)stateEl.textContent=`剑尖抵球 · ${(drill.attack).toFixed(1)} / 2.5秒 · 高速钻旋`;
   else if(drillDemo&&palmFormation.phase==='flying'&&drill.hold===0)stateEl.textContent='剑流穿行展示 · 随后托球合击';
   else if(drill.hold>0)stateEl.textContent=`左手托球蓄力 · ${drill.hold.toFixed(1)} / 1.5秒`;
-  SwordAudio.step({grab:grab&&!sphereOn,sword:swordOn,complete:giantComplete,array:arrOn,dive:arrOn&&fireOn,vortex:vortOn,orb:sphereReady,sphere:sphereOn,formed:sphereOn&&sphereState.phase==='control',power:sphereState.strength,burst:performance.now()-sphereBurstAt<1800});
   stats.innerHTML=`fps ${fps}<br>粒子 ${Math.floor(active).toLocaleString()}<br>力度 ${(c*100|0)}%<br>角度 左右 ${deg(roll)}° · 前后 ${deg(pitch)}°`+(useMouse?`<br>鼠标收拢度 ${(mClosed*100|0)}%`:'')+`<br>手势 ${({none:'—',open:'张开',fist:'攥拳',sword:'剑指'})[gc.s.state]}`+(swordOn?` · 剑向 ${Math.round(swAng)}°`:'');
 }
 requestAnimationFrame(frame);

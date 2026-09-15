@@ -2,7 +2,7 @@
 (() => {
   const effect = document.getElementById('c'), camera = document.getElementById('cam');
   const button = document.createElement('button');
-  button.id = 'recordVideo'; button.title = '录制剑阵、音效和右下角摄像头小窗，不包含按钮或网页文字'; button.textContent = '● 开始录制';
+  button.id = 'recordVideo'; button.title = '录制剑阵、自选音乐和右下角摄像头小窗，不包含按钮或网页文字'; button.textContent = '● 开始录制';
   const status = document.createElement('span');
   status.style.cssText = 'color:#eee;font-size:12px;white-space:nowrap';
   status.setAttribute('role', 'status');
@@ -58,7 +58,7 @@
       output.height = Math.max(2, Math.floor(effect.height*scale/2)*2);
       ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
       stream=output.captureStream(60); chunks=[];lastCapture=-Infinity;
-      const soundTrack=await window.SwordAudio?.prepareRecording();if(soundTrack&&soundTrack.readyState==='live')stream.addTrack(soundTrack.clone());
+      const soundTrack=await window.SwordMusic?.prepareRecording();if(soundTrack&&soundTrack.readyState==='live')stream.addTrack(soundTrack.clone());
       // Preserve native canvas detail. Target 0.16 bits per pixel per frame for dense moving particles.
       const videoBitsPerSecond=Math.min(60000000,Math.max(24000000,Math.round(output.width*output.height*60*0.16)));
       const mimeType=['video/webm;codecs=vp9,opus','video/webm;codecs=vp8,opus','video/webm'].find(t=>MediaRecorder.isTypeSupported(t));

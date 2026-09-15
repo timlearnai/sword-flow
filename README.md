@@ -1,6 +1,6 @@
 # 御剑实验室 · Sword Flow
 
-用手势控制飞剑、旋风与巨剑合击的浏览器视觉实验。基于 Three.js、MediaPipe 和 Web Audio。
+用手势控制飞剑、旋风与巨剑合击的浏览器视觉实验。基于 Three.js 和 MediaPipe。
 
 支持 2400 把飞剑旋风、60 把悬空剑、沿手指轨迹穿行，以及巨剑抵球加速自转和炸裂。
 
@@ -26,7 +26,7 @@ MP4 导出需要单独安装 FFmpeg 并放入 PATH；没有时仍可运行，导
 1. 点「预览60把排剑」，检查替代模型和排列。
 2. 待两秒凝结完成，点「预览递增批次穿行」，观察3、6、9……递增剑流。
 3. 点「预览托球巨剑合击」，检查穿行、托球、抵球自转、风效和炸裂。
-4. 点「切回手势控制」试摄像头；点「开启音效」试程序合成音效。
+4. 点「切回手势控制」试摄像头。
 
 ## 手势
 
@@ -40,7 +40,7 @@ MP4 导出需要单独安装 FFmpeg 并放入 PATH；没有时仍可运行，导
 
 - 不含歌曲、参考视频、参考图片、原 Blender/GLB 模型、个人录屏、手势采集记录及历史备份。
 - 用 `assets/models/procedural-swords.js` 独立生成的简单几何剑替代原模型，外观不同。
-- 音效由 Web Audio 合成；背景音乐改为本地选择，不附赠曲目。
+- 不含内置音效；可选择本地背景音乐，不附赠曲目。
 - 本机服务器只保留静态预览与MP4转码，移除了旧的手势录像上传接口。
 - 约90秒的全动作自动演示尚未实现；目前是单项预览及合击预览。
 
@@ -50,7 +50,7 @@ MP4 导出需要单独安装 FFmpeg 并放入 PATH；没有时仍可运行，导
 
 ## English quick start
 
-Sword Flow is an experimental browser-based, gesture-controlled sword effect playground. It includes procedural geometry, synthesized audio, flowing sword formations and a giant-sword drill attack.
+Sword Flow is an experimental browser-based, gesture-controlled sword effect playground. It includes procedural geometry, flowing sword formations and a giant-sword drill attack.
 
 Run `python3 serve.py 8770`, open `http://127.0.0.1:8770/`, then use the preview buttons or enable the camera. Dependencies load from public CDNs. Camera processing stays in the browser. Hosted recording saves WebM; local MP4 conversion requires FFmpeg. Gesture recognition and dense effects depend on lighting and hardware.
 
